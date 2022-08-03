@@ -15,7 +15,7 @@ vim.opt.listchars = "tab:⟩ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨"
 -- enable mouse
 vim.opt.mouse = "a"
 -- show line numbers
-vim.opt.number = true
+vim.opt.relativenumber = true
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
 -- show 5 characters of context on scroll
@@ -59,15 +59,15 @@ Plug 'tpope/vim-fugitive'
 -- git diff
 Plug 'sindrets/diffview.nvim'
 -- status line
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 -- tab bar
 Plug 'romgrk/barbar.nvim'
+-- indentation marks on whitespaces
+Plug 'lukas-reineke/indent-blankline.nvim'
 -- tree view
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 -- theme
-Plug 'dracula/vim'
+Plug 'w0ng/vim-hybrid'
 -- rust tools
 Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
@@ -77,7 +77,7 @@ vim.call('plug#end')
 --- plugins config ---
 ----------------------
 
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme hybrid")
 
 require('hop').setup()
 
@@ -106,7 +106,14 @@ require('lspconfig').rust_analyzer.setup({
     }
 })
 
+require('lualine').setup()
+
 require('rust-tools').setup({})
+
+require('nvim-tree').setup({
+    open_on_setup = true,
+    open_on_setup_file = true,
+})
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 vim.api.nvim_set_keymap("i", "<CR>", 
@@ -116,17 +123,18 @@ vim.api.nvim_set_keymap("i", "<CR>",
 vim.api.nvim_set_keymap("i", "<c-space>", "coc#refresh()", 
 	{ noremap = true, silent = true, expr = true })
 -- Make <escape> to abort
-vim.api.nvim_set_keymap("i", "<escape>", 
-	"coc#pum#visible() ? coc#pum#stop() : \"\\<escape>\"", 
+vim.api.nvim_set_keymap("i", "<backspace>", 
+	"coc#pum#visible() ? coc#pum#stop() : \"\\<backspace>\"", 
 	{ noremap = true, silent = true, expr = true })
 
--- Start NERDTree and put the cursor back in the other window.
-vim.api.nvim_create_autocmd("VimEnter", 
-	{ pattern = "*", command = "NERDTree | wincmd p" })
--- Exit Vim if NERDTree is the only window remaining in the only tab.
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", 
-	command = "if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif" })
--- If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", 
-	command = "if bufname('#') =~ 'NERD_tree_\\d\\+' && bufname('%') !~ 'NERD_tree_\\d\\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute \"normal! \\<C-W>w\" | execute 'buffer'.buf | endif" })
+-- quit if nvim-tree is the last window
+vim.api.nvim_create_autocmd("BufEnter", { 
+    nested = true,
+    callback = function()
+        if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+--            vim.cmd "NvimTreeClose"
+            vim.cmd "quit"
+        end
+    end
+})
 
