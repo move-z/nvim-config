@@ -15,7 +15,7 @@ vim.opt.listchars = "tab:⟩ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨"
 -- enable mouse
 vim.opt.mouse = "a"
 -- show line numbers
-vim.opt.relativenumber = true
+vim.opt.number = true
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
 -- show 5 characters of context on scroll
