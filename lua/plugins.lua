@@ -37,3 +37,21 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
 vim.call('plug#end')
 
+vim.g.coc_global_extensions = {
+--	'coc-ansible',
+	'coc-css',
+	'coc-docker',
+	'coc-git',
+	'coc-go',
+	'coc-highlight',
+	'coc-html',
+	'coc-html-css-support',
+	'coc-json',
+	'coc-pyright',
+	'coc-rust-analyzer',
+--	'coc-symbol-line',
+	'coc-toml',
+	'coc-xml',
+	'coc-yaml'
+}
+

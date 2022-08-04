@@ -17,10 +17,16 @@ vim.opt.relativenumber = true
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
 
+-- show matching parentheses
+vim.opt.showmatch = true
+
 -- show 5 characters of context on scroll
 vim.opt.sidescrolloff = 5
 
 
 require('hop').setup()
 
-vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
+vim.api.nvim_create_autocmd("CursorHold", { 
+    callback = function() vim.fn.CocActionAsync('highlight') end
+})
+
