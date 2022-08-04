@@ -37,7 +37,3 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
 vim.call('plug#end')
 
-require('plugins.ui')
-require('plugins.text')
-require('plugins.rust')
-
