@@ -23,3 +23,4 @@ vim.opt.sidescrolloff = 5
 
 require('hop').setup()
 
+vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
