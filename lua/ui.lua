@@ -12,13 +12,16 @@ vim.opt.splitbelow = true
 vim.opt.termguicolors = true
 
 
-vim.cmd("colorscheme iceberg")
+vim.cmd("colorscheme hybrid")
 
 require('lualine').setup()
 
 require('nvim-tree').setup({
     open_on_setup = true,
     open_on_setup_file = true,
+    filters = {
+        dotfiles = true,
+    }
 })
 
 require("indent_blankline").setup {

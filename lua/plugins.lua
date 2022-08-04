@@ -29,7 +29,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 -- tree view
 Plug 'kyazdani42/nvim-tree.lua'
 -- theme
-Plug 'cocopon/iceberg.vim'
+Plug 'w0ng/vim-hybrid'
 -- rust tools
 Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
