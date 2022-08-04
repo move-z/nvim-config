@@ -18,6 +18,7 @@ vim.opt.mouse = "a"
 
 -- show line numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
