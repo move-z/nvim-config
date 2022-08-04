@@ -21,6 +21,8 @@ vim.keymap.set('n', '<c-e>', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
+vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
+
 -- show documentation
 vim.keymap.set('n', 'K', function() vim.fn.CocActionAsync('doHover') end, opts)
 
@@ -35,5 +37,21 @@ vim.keymap.set("i", "<c-space>", "coc#refresh()", opts)
 vim.keymap.set("i", "<c-c>", "coc#pum#visible() ? coc#pum#stop() : \"\\<c-c>\"", 
 	opts)
 
-vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
+-- for barbar
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Move to previous/next
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+-- Re-order to previous/next
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+-- Pin/unpin buffer
+map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+-- Close buffer
+vim.api.nvim_create_user_command('Q', ':BufferClose', {})
+
+-- Magic buffer-picking mode
+map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
