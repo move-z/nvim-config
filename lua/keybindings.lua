@@ -20,6 +20,8 @@ vim.keymap.set('n', '<c-e>', vim.diagnostic.open_float, opts)
 -- diagnostics navigation
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+-- alt-e action window
+vim.keymap.set('n', '<a-e>', vim.lsp.buf.code_action, opts)
 
 vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
 
