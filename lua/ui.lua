@@ -46,3 +46,13 @@ require("telescope").setup {
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("ui-select")
 
+require("lspsaga").init_lsp_saga({
+  finder_action_keys = {
+    open = "<CR>",
+    quit = "<c-c>",
+  },
+  code_action_keys = {
+    quit = "<c-c>",
+  },
+})
+

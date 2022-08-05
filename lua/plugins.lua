@@ -28,6 +28,8 @@ Plug 'romgrk/barbar.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 -- tree view
 Plug 'kyazdani42/nvim-tree.lua'
+-- better ui
+Plug('glepnir/lspsaga.nvim', { branch = 'main' })
 -- theme
 Plug 'w0ng/vim-hybrid'
 -- rust tools
