@@ -18,8 +18,8 @@ local opts = { noremap=true, silent=true }
 -- ^e for diagnostics window
 vim.keymap.set('n', '<c-e>', vim.diagnostic.open_float, opts)
 -- diagnostics navigation
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
 -- alt-e action window
 vim.keymap.set('n', '<a-e>', vim.lsp.buf.code_action, opts)
 
