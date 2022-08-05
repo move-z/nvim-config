@@ -31,6 +31,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 -- theme
 Plug 'w0ng/vim-hybrid'
 -- rust tools
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
 vim.call('plug#end')
