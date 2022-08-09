@@ -5,7 +5,8 @@ vim.keymap.set('n', 'f', ':HopPattern<CR>')
 -- file by name
 vim.keymap.set("n", "F", ':Telescope find_files<CR>', {})
 -- live grep
-vim.keymap.set("n", "<a-f>", ':Telescope live_grep<CR>', {})
+--vim.keymap.set("n", "<a-f>", ':Telescope live_grep<CR>', {})
+vim.keymap.set("n", "<a-f>", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
 
 -- code navigation
 vim.keymap.set('n', 'gd', '<Plug>(coc-definition)', opts)
