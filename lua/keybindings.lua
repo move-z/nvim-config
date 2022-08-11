@@ -1,10 +1,10 @@
 -- jump to pattern
-vim.keymap.set('n', 'f', '<cmd>HopPattern<CR>')
+vim.keymap.set('n', '<c-f>', '<cmd>HopPattern<CR>')
 -- file by name
-vim.keymap.set("n", "F", '<cmd>Telescope find_files<CR>', {})
+vim.keymap.set("n", "<leader>f", '<cmd>Telescope find_files<CR>', {})
 -- live grep
-vim.keymap.set("n", "<a-f>", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
---vim.keymap.set("n", "<a-f>", '<cmd>Telescope live_grep<CR>', {})
+vim.keymap.set("n", "<leader>F", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
+--vim.keymap.set("n", "<leader>F", '<cmd>Telescope live_grep<CR>', {})
 
 local opts = { noremap }
 
@@ -54,16 +54,16 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 -- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+vim.keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+vim.keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 -- Pin/unpin buffer
-map('n', '<c-p>', '<Cmd>BufferPin<CR>', opts)
+vim.keymap.set('n', '<c-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
 vim.api.nvim_create_user_command('Q', ':BufferClose', {})
 
 -- Magic buffer-picking mode
-map('n', '<a-p>', '<cmd>BufferPick<CR>', opts)
+vim.keymap.set('n', '<a-p>', '<cmd>BufferPick<CR>', opts)
 
