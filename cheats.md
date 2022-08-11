@@ -107,9 +107,13 @@ Command | Description
 `<n>~` | toggle case for n characters
 `<n>J` | join together with next n lines
 |
-`<m>m<n>` | move lines m after line n
-`<m>t<n>` | copy lines m after line n
-`<m>co<n>` | copy lines m after line n (same as t)
+`<c>d` | delete lines at [coordinates](#Coordinates) c
+`<c>m<n>` | move lines at [coordinates](#Coordinates) c after line n
+`<c>t<n>` | copy lines at [coordinates](#Coordinates) c after line n
+`<c>co<n>` | copy lines at [coordinates](#Coordinates) c after line n (same as t)
+|
+`:se[t] w[rap]m[argin]=<n>` | wrap at column n
+`:se[t] nu[mber]` | show line numbers
 
 
 # Buffer
@@ -146,20 +150,18 @@ Command | Description
 `;` | repeat previous find
 `,` | repeat previous find in opposite direction
 |
-`:set nowrapscan` | don't wrap search
+`:se[t] ignorecase` | ignore case
+`:se[t] nowrapscan` | don't wrap search
+`:se[t] nomagic` | ignore special characters in pattern
 |
-`:<c>s/<p>/<r>/<f>` | replace pattern p with r at coordinates c, optionally with flags f<br> for coordinates see section [Coordinates](#Coordinates)
+`:<c>s/<p>/<r>/<f>` | replace first occurrence of pattern p with r at coordinates c, optionally with flags f<br>most characters can be used instead of /<br> for coordinates see section [Coordinates](#Coordinates)<br>flags:<br>`g`: replace all matches, not only the first one<br>`i`: case insensitive match<br>`c`: ask confirmation
+`:<c>g/<l>/s/<p>/<r>/<f>` | like s but on lines that contain pattern l<br>pattern p can be omitted if equal to l
+`:s` | repeat last replace
+`&` | same as `:s`
+`:~` | repeat last replace but with patter from last command of any kind with a pattern
 |
 `:<c>g/<pattern>` | print all matching lines
 `:<c>g!/<pattern>` | print all non matching lines
-
-
-# Options
-
-Command | Description
----|---
-`:se[t] w[rap]m[argin]=<n>` | wrap at column n
-`:se[t] nu[mber]` | show line numbers
 
 
 # Coordinates
@@ -174,5 +176,38 @@ Command | Description
 `%` | all lines
 `+<n>` or `-<n>` | relative to current line (default n == 1)
 `/<p>/` | next line containing pattern p
+`g/<p>/` | all lines containing pattern p
+
+
+# Regex syntax
+
+Command | Description
+---|---
+`.` | any character
+`*` | 0 or more of previous element
+`^` | start of line if at start of regex
+`$` | end of line if at end of regex
+`[]` | character set, supports intervals
+`\(\)` | groupings, replacement is \<n>, can be used in pattern
+`\<\>` | beginning and end of word
+`[:alnum:]` | alphanumeric characters
+`[:alpha:]` | alphabetic characters
+`[:lower:]` | lowercase characters
+`[:upper:]` | uppercase characters
+`[:digit:]` | numeric characters
+`[:xdigit:]` | hexadecimal digits
+`[:punct:]` | punctuation characters
+`[:graph:]` | printable and visible (nonspace) characters
+`[:space:]` | whitespace characters
+`[:blank:]` | space and tab characters
+`[:print:]` | printable characters (includes whitespace)
+`[:cntrl:]` | control characters
+`[.<seq>.]` | treat sequence as unit
+`\n` | nth grouping
+`&` | all matching text
+`~` | repeat last substitute pattern
+`\l` or `\u` | convert to lowercase or uppercase next element
+`\L` or `\U` with `\e` or `\E` | convert to lowercase or uppercase until `\e` or `\E` or end of line
+
 
 
