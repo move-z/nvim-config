@@ -18,6 +18,7 @@ Plug 'tpope/vim-commentary'
 -- file search
 Plug('nvim-telescope/telescope.nvim', { branch = '0.1.x' })
 Plug('nvim-treesitter/nvim-treesitter')
+Plug('nvim-telescope/telescope-live-grep-args.nvim')
 -- git support
 Plug 'tpope/vim-fugitive'
 -- status line

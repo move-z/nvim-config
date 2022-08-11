@@ -30,3 +30,5 @@ vim.api.nvim_create_autocmd("CursorHold", {
     callback = function() vim.fn.CocActionAsync('highlight') end
 })
 
+require("telescope").load_extension("live_grep_args")
+

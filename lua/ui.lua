@@ -39,6 +39,9 @@ require("telescope").setup {
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown { }
+    },
+    live_grep_args = {
+      auto_quoting = false
     }
   }
 }

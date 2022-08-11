@@ -3,7 +3,8 @@ vim.keymap.set('n', 'f', '<cmd>HopPattern<CR>')
 -- file by name
 vim.keymap.set("n", "F", '<cmd>Telescope find_files<CR>', {})
 -- live grep
-vim.keymap.set("n", "<a-f>", '<cmd>Telescope live_grep<CR>', {})
+vim.keymap.set("n", "<a-f>", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
+--vim.keymap.set("n", "<a-f>", '<cmd>Telescope live_grep<CR>', {})
 
 local opts = { noremap }
 
