@@ -12,7 +12,7 @@ vim.opt.listchars = "tab:⟩ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨"
 
 -- show line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+--vim.opt.relativenumber = true
 
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
