@@ -1,3 +1,6 @@
+-- unified status line
+vim.opt.laststatus = 3
+
 -- enable mouse
 vim.opt.mouse = "a"
 
@@ -19,6 +22,10 @@ require('lualine').setup()
 require('nvim-tree').setup({
     open_on_setup = true,
     open_on_setup_file = true,
+    sync_root_with_cwd = true,
+    update_focused_file = {
+        enable = true,
+    },
     filters = {
         dotfiles = true,
     }
