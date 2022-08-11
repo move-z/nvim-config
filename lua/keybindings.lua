@@ -1,5 +1,5 @@
 -- jump to pattern
-vim.keymap.set('n', '<c-f>', '<cmd>HopPattern<CR>')
+vim.keymap.set('n', '<leader>h', '<cmd>HopPattern<CR>')
 -- file by name
 vim.keymap.set("n", "<leader>f", '<cmd>Telescope find_files<CR>', {})
 -- live grep
