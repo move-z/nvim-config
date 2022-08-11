@@ -24,12 +24,12 @@ local opts = { noremap=true, silent=true }
 vim.keymap.set("n", "<F2>", require("lspsaga.rename").lsp_rename, opts)
 
 -- ^e for diagnostics window
-vim.keymap.set("n", "<c-e>", require("lspsaga.diagnostic").show_line_diagnostics, opts)
+vim.keymap.set("n", "<leader>d", require("lspsaga.diagnostic").show_line_diagnostics, opts)
 -- -- diagnostics navigation
 vim.keymap.set('n', 'g[', require("lspsaga.diagnostic").goto_prev, opts)
 vim.keymap.set('n', 'g]', require("lspsaga.diagnostic").goto_next, opts)
 -- alt-e action window
-vim.keymap.set("n", "<a-e>", require("lspsaga.codeaction").code_action, opts)
+vim.keymap.set("n", "<leader>a", require("lspsaga.codeaction").code_action, opts)
 
 vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
 vim.api.nvim_create_user_command('OL', ":LSoutlineToggle", {})
