@@ -23,6 +23,10 @@ vim.opt.showmatch = true
 -- show 5 characters of context on scroll
 vim.opt.sidescrolloff = 5
 
+-- spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en,it"
+
 
 require('hop').setup()
 
