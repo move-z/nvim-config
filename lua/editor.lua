@@ -28,11 +28,7 @@ vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
 
-require('hop').setup()
-
 vim.api.nvim_create_autocmd("CursorHold", { 
     callback = function() vim.fn.CocActionAsync('highlight') end
 })
-
-require("telescope").load_extension("live_grep_args")
 

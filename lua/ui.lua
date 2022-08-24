@@ -15,54 +15,5 @@ vim.opt.splitbelow = true
 vim.opt.termguicolors = true
 
 
-vim.cmd("colorscheme hybrid")
-
-require('lualine').setup()
-
-require('nvim-tree').setup({
-    open_on_setup = true,
-    open_on_setup_file = true,
-    sync_root_with_cwd = true,
-    update_focused_file = {
-        enable = true,
-    },
-    filters = {
-        dotfiles = true,
-    }
-})
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    space_char_highlight_list = {
-        "Comment",
-    },
-    char_highlight_list = {
-        "Comment",
-    },
-}
-
--- This is your opts table
-require("telescope").setup {
-  extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown { }
-    },
-    live_grep_args = {
-      auto_quoting = false
-    }
-  }
-}
--- To get ui-select loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require("telescope").load_extension("ui-select")
-
-require("lspsaga").init_lsp_saga({
-  finder_action_keys = {
-    open = "<CR>",
-    quit = "<c-c>",
-  },
-  code_action_keys = {
-    quit = "<c-c>",
-  },
-})
+vim.cmd("colorscheme darcula")
 

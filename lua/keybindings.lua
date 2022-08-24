@@ -67,3 +67,7 @@ vim.api.nvim_create_user_command('Q', ':BufferClose', {})
 -- Magic buffer-picking mode
 vim.keymap.set('n', '<a-p>', '<cmd>BufferPick<CR>', opts)
 
+-- Spell check add rare word
+vim.keymap.set('n', 'zr', function() vim.cmd('spellrare ' .. vim.fn.expand('<cword>')) end, opts)
+vim.keymap.set('n', 'zR', function() vim.cmd('spellrare! ' .. vim.fn.expand('<cword>')) end, opts)
+vim.keymap.set('n', 'zur', function() vim.cmd('spellundo ' .. vim.fn.expand('<cword>')) end, opts)
