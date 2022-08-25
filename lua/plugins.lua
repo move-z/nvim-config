@@ -16,9 +16,7 @@ require('packer').startup(function(use)
   -- manage tools installations
   use {
     'williamboman/mason.nvim',
-    config = function()
-      require("mason").setup()
-    end
+    config = function() require("mason").setup() end
   }
   use 'williamboman/mason-lspconfig.nvim'
 
@@ -26,9 +24,7 @@ require('packer').startup(function(use)
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require'lualine'.setup()
-    end
+    config = function() require'lualine'.setup() end
   }
 
   -- tab bar
@@ -148,45 +144,66 @@ require('packer').startup(function(use)
     branch = 'release',
   }
 
- use {
-   'simrat39/rust-tools.nvim',
-   requires = {
-     'nvim-lua/plenary.nvim',
-     'mfussenegger/nvim-dap',
-   },
-   config = function()
-     require('rust-tools').setup({
-       server = {
-         settings = {
-           ["rust-analyzer"] = {
-             imports = {
-               granularity = {
-                 group = "module",
-               },
-               prefix = "self",
-             },
-             cargo = {
-               buildScripts = {
-                 enable = true,
-               },
-             },
-             procMacro = {
-               enable = true
-             },
-             checkOnSave = {
-               command = "clippy"
-             },
-           }
-         }
-       },
-       tools = {
-         inlay_hints = {
-           auto = false,
-         }
-       }
-     })
-   end
- }
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      'mfussenegger/nvim-dap'
+    },
+    -- doesn't work here
+    -- config = function() require('dapui').setup() end
+  }
+
+  use {
+    'theHamsta/nvim-dap-virtual-text',
+    requires = {
+      'mfussenegger/nvim-dap'
+    },
+    -- doesn't work here
+    -- config = function() require('nvim-dap-virtual-text').setup() end
+  }
+
+  use {
+    'simrat39/rust-tools.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
+    },
+    config = function()
+      require('rust-tools').setup({
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              imports = {
+                granularity = {
+                  group = "module",
+                },
+                prefix = "self",
+              },
+              cargo = {
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              procMacro = {
+                enable = true
+              },
+              checkOnSave = {
+                command = "clippy"
+              },
+            }
+          }
+        },
+        tools = {
+          inlay_hints = {
+            auto = false,
+          },
+          hover_actions = {
+            auto_focus = true,
+          },
+        }
+      })
+    end
+  }
 
   -- Put this at the end after all plugins
   if packer_bootstrap then
