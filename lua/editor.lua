@@ -11,8 +11,8 @@ vim.opt.list = true
 vim.opt.listchars = "tab:⟩ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨"
 
 -- show line numbers
-vim.opt.number = true
---vim.opt.relativenumber = true
+-- vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
@@ -27,11 +27,10 @@ vim.opt.sidescrolloff = 5
 vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
--- improve cmd line completion
-vim.opt.wildmode = "list:longest,full"
-
-
-vim.api.nvim_create_autocmd("CursorHold", { 
-    callback = function() vim.fn.CocActionAsync('highlight') end
+-- highlight current word
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.fn.CocActionAsync('highlight')
+  end
 })
 

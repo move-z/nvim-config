@@ -8,43 +8,53 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- use 'wuelnerdotexe/vim-enfocado'
-  use 'sainnhe/everforest'
-  -- use 'phanviet/vim-monokai-pro'
-  -- use 'arcticicestudio/nord-vim'
-  -- use 'connorholyday/vim-snazzy'
-  -- use 'sainnhe/sonokai'
+  use 'neovim/nvim-lspconfig'
 
+  -- theme
+  use 'sainnhe/everforest'
+
+  -- manage tools installations
   use {
-    'neovim/nvim-lspconfig',
+    'williamboman/mason.nvim',
     config = function()
-      require('lspconfig').rust_analyzer.setup({
-      	on_attach=on_attach,
-          settings = {
-              ["rust-analyzer"] = {
-                  imports = {
-                      granularity = {
-                          group = "module",
-                      },
-                      prefix = "self",
-                  },
-                  cargo = {
-                      buildScripts = {
-                          enable = true,
-                      },
-                  },
-                  procMacro = {
-                      enable = true
-                  },
-                  checkOnSave = {
-                      command = "clippy"
-                  },
-              }
-          }
-      })
+      require("mason").setup()
+    end
+  }
+  use 'williamboman/mason-lspconfig.nvim'
+
+  -- status line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function()
+      require'lualine'.setup()
     end
   }
 
+  -- tab bar
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
+  -- tree view
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = function()
+      require('nvim-tree').setup {
+        open_on_setup = true,
+        open_on_setup_file = true,
+        sync_root_with_cwd = true,
+        update_focused_file = {
+          enable = true,
+        },
+        filters = {
+          dotfiles = true,
+        }
+      }
+    end
+  }
 
   -- editorconfig
   use 'editorconfig/editorconfig-vim'
@@ -59,24 +69,7 @@ require('packer').startup(function(use)
     end
   }
 
-  -- code completion
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release',
-  }
-
-  -- better syntax highlighting
-  use 'sheerun/vim-polyglot'
-
-  -- line comment
-  use 'tpope/vim-commentary'
-
   -- file search
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-
   use {
     'nvim-telescope/telescope.nvim', 
     branch = '0.1.x',
@@ -84,6 +77,7 @@ require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-live-grep-args.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-treesitter/nvim-treesitter'
     },
     config = function()
       local t = require('telescope')
@@ -106,66 +100,37 @@ require('packer').startup(function(use)
     end
   }
 
-  -- git support
-  use 'tpope/vim-fugitive'
+  -- line comment
+  use 'tpope/vim-commentary'
 
-  -- status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require'lualine'.setup()
-    end
-  }
-
-  -- tab bar
-  use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  } 
-  -- Automatically set up your configuration after cloning packer.nvim
+  -- better syntax highlighting
+  use 'sheerun/vim-polyglot'
 
   -- indentation marks on whitespaces
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require("indent_blankline").setup {
-          space_char_blankline = " ",
-          space_char_highlight_list = {
-              "Comment",
-          },
-          char_highlight_list = {
-              "Comment",
-          },
+        space_char_blankline = " ",
+        space_char_highlight_list = {
+          "Comment",
+        },
+        char_highlight_list = {
+          "Comment",
+        },
       }
     end
   }
 
-  -- tree view
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    config = function()
-      require('nvim-tree').setup({
-          open_on_setup = true,
-          open_on_setup_file = true,
-          sync_root_with_cwd = true,
-          update_focused_file = {
-              enable = true,
-          },
-          filters = {
-              dotfiles = true,
-          }
-      })
-    end
-  }
-
-  -- better ui
+  -- better dev ui
   use {
     'glepnir/lspsaga.nvim', 
     branch = 'main',
     config = function()
-      require("lspsaga").init_lsp_saga({
+      require("lspsaga").init_lsp_saga {
+        code_action_lightbulb = {
+          enable = false,
+        },
         finder_action_keys = {
           open = "<CR>",
           quit = "<c-c>",
@@ -173,24 +138,55 @@ require('packer').startup(function(use)
         code_action_keys = {
           quit = "<c-c>",
         },
-      })
+      }
     end
   }
-  
+
+  -- code completion
   use {
-    'simrat39/rust-tools.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'mfussenegger/nvim-dap',
-    },
-    config = function()
-      require('rust-tools').setup({
-          tools = {
-              autoSetHints = false,
-          }
-      })
-    end
+    'neoclide/coc.nvim',
+    branch = 'release',
   }
+
+ use {
+   'simrat39/rust-tools.nvim',
+   requires = {
+     'nvim-lua/plenary.nvim',
+     'mfussenegger/nvim-dap',
+   },
+   config = function()
+     require('rust-tools').setup({
+       server = {
+         settings = {
+           ["rust-analyzer"] = {
+             imports = {
+               granularity = {
+                 group = "module",
+               },
+               prefix = "self",
+             },
+             cargo = {
+               buildScripts = {
+                 enable = true,
+               },
+             },
+             procMacro = {
+               enable = true
+             },
+             checkOnSave = {
+               command = "clippy"
+             },
+           }
+         }
+       },
+       tools = {
+         inlay_hints = {
+           auto = false,
+         }
+       }
+     })
+   end
+ }
 
   -- Put this at the end after all plugins
   if packer_bootstrap then
@@ -199,20 +195,20 @@ require('packer').startup(function(use)
 end)
 
 vim.g.coc_global_extensions = {
---	'coc-ansible',
-	'coc-css',
-	'coc-docker',
-	'coc-git',
-	'coc-go',
-	'coc-highlight',
-	'coc-html',
-	'coc-html-css-support',
-	'coc-json',
-	'coc-pyright',
-	'coc-rust-analyzer',
---	'coc-symbol-line',
-	'coc-toml',
-	'coc-xml',
-	'coc-yaml'
+--  'coc-ansible',
+  'coc-css',
+  'coc-docker',
+  'coc-git',
+  'coc-go',
+  'coc-highlight',
+  'coc-html',
+  'coc-html-css-support',
+  'coc-json',
+  'coc-pyright',
+  'coc-rust-analyzer',
+--  'coc-symbol-line',
+  'coc-toml',
+  'coc-xml',
+  'coc-yaml'
 }
 

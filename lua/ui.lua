@@ -17,3 +17,20 @@ vim.opt.termguicolors = true
 
 vim.cmd("colorscheme everforest")
 
+vim.fn.sign_define(
+  "DiagnosticSignError",
+  { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" }
+)
+vim.fn.sign_define(
+  "DiagnosticSignWarning",
+  { texthl = "DiagnosticSignWarning", text = "", numhl = "DiagnosticSignWarning" }
+)
+vim.fn.sign_define(
+  "DiagnosticSignHint",
+  { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" }
+)
+vim.fn.sign_define(
+  "DiagnosticSignInformation",
+  { texthl = "DiagnosticSignInformation", text = "", numhl = "DiagnosticSignInformation" }
+)
+
