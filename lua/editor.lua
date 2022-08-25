@@ -27,6 +27,9 @@ vim.opt.sidescrolloff = 5
 vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
+-- improve cmd line completion
+vim.opt.wildmode = "list:longest,full"
+
 
 vim.api.nvim_create_autocmd("CursorHold", { 
     callback = function() vim.fn.CocActionAsync('highlight') end
