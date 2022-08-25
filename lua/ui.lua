@@ -15,5 +15,5 @@ vim.opt.splitbelow = true
 vim.opt.termguicolors = true
 
 
-vim.cmd("colorscheme darcula")
+vim.cmd("colorscheme everforest")
 

@@ -8,7 +8,12 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'doums/darcula'
+  -- use 'wuelnerdotexe/vim-enfocado'
+  use 'sainnhe/everforest'
+  -- use 'phanviet/vim-monokai-pro'
+  -- use 'arcticicestudio/nord-vim'
+  -- use 'connorholyday/vim-snazzy'
+  -- use 'sainnhe/sonokai'
 
   use {
     'neovim/nvim-lspconfig',
