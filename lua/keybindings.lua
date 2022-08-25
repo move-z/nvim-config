@@ -36,7 +36,7 @@ vim.api.nvim_create_user_command('OL', ":LSoutlineToggle", {})
 vim.keymap.set("n", "K", require("lspsaga.hover").render_hover_doc)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
-vim.keymap.set("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm() : \"\\<CR>\"", { expr = true })
+vim.keymap.set("i", "<cr>", "coc#pum#visible() ? coc#pum#confirm() : \"\\<cr>\"", { expr = true })
 -- Use <c-space> to trigger completion.
 vim.keymap.set("i", "<c-space>", "coc#refresh()", { expr = true })
 -- Make <c-c> to abort

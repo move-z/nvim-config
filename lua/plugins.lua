@@ -204,6 +204,7 @@ vim.g.coc_global_extensions = {
   'coc-html',
   'coc-html-css-support',
   'coc-json',
+  'coc-pairs',
   'coc-pyright',
   'coc-rust-analyzer',
 --  'coc-symbol-line',
