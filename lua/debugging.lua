@@ -1,7 +1,10 @@
 local dap, dapui = require("dap"), require("dapui")
 local nt_api = require("nvim-tree.api")
 
--- vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', {text='🚫', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='❓', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointRejected', {text='⛔', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapLogPoint', {text='📝', texthl='', linehl='', numhl=''})
 
 dapui.setup()
 require('nvim-dap-virtual-text').setup()

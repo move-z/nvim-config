@@ -1,3 +1,6 @@
+-- map leader is space
+vim.g.mapleader = " "
+
 -- jump to pattern
 vim.keymap.set('n', "<leader>h", function() vim.cmd('HopPattern') end)
 -- file by name
@@ -6,6 +9,8 @@ vim.keymap.set('n', "<leader>f", function() vim.cmd('Telescope find_files') end)
 vim.keymap.set('n', "<leader>F", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
 -- find symbol
 vim.keymap.set('n', "<leader>S", function() vim.cmd('Telescope treesitter') end)
+-- find all
+vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 
 vim.keymap.set('n', '<c-l>', function() vim.cmd('nohlsearch') end)
 
