@@ -65,14 +65,12 @@ require('packer').startup(function(use)
     end
   }
 
-  -- file search
+  -- telescope
   use {
     'nvim-telescope/telescope.nvim', 
     branch = '0.1.x',
     requires = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-live-grep-args.nvim',
-      'nvim-telescope/telescope-ui-select.nvim',
       'nvim-treesitter/nvim-treesitter'
     },
     config = function()
@@ -88,11 +86,36 @@ require('packer').startup(function(use)
         }
       }
 
-      t.load_extension("live_grep_args")
 
+    end
+  }
+  use {
+    'nvim-telescope/telescope-live-grep-args.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
+  }
+  use {
+    'nvim-telescope/telescope-ui-select.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
       -- To get ui-select loaded and working with telescope, you need to call
       -- load_extension, somewhere after setup function:
-      t.load_extension("ui-select")
+      require('telescope').load_extension("ui-select")
+    end
+  }
+  use {
+    'xiyaowong/telescope-emoji.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require("telescope").load_extension("emoji")
     end
   }
 
@@ -221,7 +244,7 @@ vim.g.coc_global_extensions = {
   'coc-html',
   'coc-html-css-support',
   'coc-json',
-  'coc-pairs',
+--  'coc-pairs',
   'coc-pyright',
   'coc-rust-analyzer',
 --  'coc-symbol-line',

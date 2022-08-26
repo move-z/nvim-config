@@ -27,6 +27,7 @@
     "operator": "",
     "typeParameter": "",
     "default": ""
-  }
+  },
+  "rust-analyzer.server.path": "/home/boer.rodolfo/.local/share/nvim/mason/bin/rust-analyzer"
 }
 
