@@ -1,5 +1,6 @@
 -- map leader is space
 vim.g.mapleader = " "
+vim.opt.timeoutlen = 10000
 
 -- jump to pattern
 vim.keymap.set('n', "<leader>h", function() vim.cmd('HopPattern') end)
@@ -48,13 +49,13 @@ vim.keymap.set("i", "<c-space>", "coc#refresh()", { expr = true })
 vim.keymap.set("i", "<c-c>", "coc#pum#visible() ? coc#pum#stop() : \"\\<c-c>\"", { expr = true })
 
 -- Move to previous/next
-vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>')
-vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>')
+vim.keymap.set('n', '<A-,>', '<cmd>BufferPrevious<CR>')
+vim.keymap.set('n', '<A-.>', '<cmd>BufferNext<CR>')
 -- Re-order to previous/next
-vim.keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>')
-vim.keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>')
+vim.keymap.set('n', '<A-<>', '<cmd>BufferMovePrevious<CR>')
+vim.keymap.set('n', '<A->>', '<cmd>BufferMoveNext<CR>')
 -- Pin/unpin buffer
-vim.keymap.set('n', '<c-p>', '<Cmd>BufferPin<CR>')
+vim.keymap.set('n', '<c-p>', '<cmd>BufferPin<CR>')
 -- Close buffer
 vim.api.nvim_create_user_command('Q', ':BufferClose', {})
 
@@ -65,4 +66,6 @@ vim.keymap.set('n', '<a-p>', '<cmd>BufferPick<CR>')
 vim.keymap.set('n', 'zr', function() vim.cmd('spellrare ' .. vim.fn.expand('<cword>')) end)
 vim.keymap.set('n', 'zR', function() vim.cmd('spellrare! ' .. vim.fn.expand('<cword>')) end)
 vim.keymap.set('n', 'zur', function() vim.cmd('spellundo ' .. vim.fn.expand('<cword>')) end)
+
+vim.keymap.set('t', '<a-esc>', '<c-\\><c-n>')
 
