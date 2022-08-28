@@ -9,7 +9,9 @@ vim.keymap.set('n', "<leader>f", function() vim.cmd('Telescope find_files') end)
 -- live grep
 vim.keymap.set('n', "<leader>F", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
 -- find symbol
-vim.keymap.set('n', "<leader>S", function() vim.cmd('Telescope treesitter') end)
+vim.keymap.set('n', "<leader>s", function() vim.cmd('Telescope lsp_dynamic_workspace_symbols') end)
+-- look for current word
+vim.keymap.set('n', "<leader>w", function() vim.cmd('Telescope treesitter') end)
 -- find all
 vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 
