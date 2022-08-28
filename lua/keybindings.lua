@@ -10,8 +10,8 @@ vim.keymap.set('n', "<leader>f", function() vim.cmd('Telescope find_files') end)
 vim.keymap.set('n', "<leader>F", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
 -- find symbol
 vim.keymap.set('n', "<leader>s", function() vim.cmd('Telescope lsp_dynamic_workspace_symbols') end)
--- look for current word
-vim.keymap.set('n', "<leader>w", function() vim.cmd('Telescope treesitter') end)
+-- lsp finder to find the cursor word definition and reference
+ vim.keymap.set("n", "<leader>w", function() vim.cmd("Lspsaga lsp_finder") end)
 -- find all
 vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 
@@ -21,9 +21,6 @@ vim.keymap.set('n', '<c-l>', function() vim.cmd('nohlsearch') end)
 vim.keymap.set('n', '<leader>gd', '<Plug>(coc-definition)')
 vim.keymap.set('n', '<leader>gt', '<Plug>(coc-type-definition)')
 vim.keymap.set('n', '<leader>gi', '<Plug>(coc-implementation)')
-
--- lsp finder to find the cursor word definition and reference
- vim.keymap.set("n", "<leader>gw", function() vim.cmd("Lspsaga lsp_finder") end)
 
 -- rename
 vim.keymap.set("n", "<F2>", require("lspsaga.rename").lsp_rename)
