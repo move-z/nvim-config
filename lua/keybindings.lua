@@ -1,5 +1,5 @@
 -- map leader is space
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 vim.opt.timeoutlen = 10000
 
 -- jump to pattern
