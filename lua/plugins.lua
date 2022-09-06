@@ -141,6 +141,9 @@ require('packer').startup(function(use)
     end
   }
 
+  -- git integration
+  use 'tpope/vim-fugitive'
+
   -- better dev ui
   use {
     'glepnir/lspsaga.nvim', 
