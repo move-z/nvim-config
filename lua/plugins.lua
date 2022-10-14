@@ -8,17 +8,20 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'neovim/nvim-lspconfig'
-
   -- theme
   use 'sainnhe/everforest'
 
   -- manage tools installations
   use {
     'williamboman/mason.nvim',
-    config = function() require("mason").setup() end
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
   }
-  use 'williamboman/mason-lspconfig.nvim'
+  require("mason").setup()
+  require("mason-lspconfig").setup()
+  require("lspconfig")["gopls"].setup{}
+  require("lspconfig")["jdtls"].setup{}
+  require("lspconfig")["groovyls"].setup{}
 
   -- status line
   use {
