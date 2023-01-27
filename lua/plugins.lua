@@ -152,16 +152,18 @@ require('packer').startup(function(use)
     'glepnir/lspsaga.nvim', 
     branch = 'main',
     config = function()
-      require("lspsaga").init_lsp_saga {
-        code_action_lightbulb = {
+      require("lspsaga").setup {
+        lightbulb = {
           enable = false,
         },
-        finder_action_keys = {
-          open = "<CR>",
+        finder = {
+          edit = "<CR>",
           quit = "<c-c>",
         },
-        code_action_keys = {
-          quit = "<c-c>",
+        code_action = {
+          keys = {
+            quit = "<c-c>",
+          },
         },
       }
     end

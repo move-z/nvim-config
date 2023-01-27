@@ -23,13 +23,13 @@ vim.keymap.set('n', '<leader>gt', '<Plug>(coc-type-definition)')
 vim.keymap.set('n', '<leader>gi', '<Plug>(coc-implementation)')
 
 -- rename
-vim.keymap.set("n", "<F2>", require("lspsaga.rename").lsp_rename)
+vim.keymap.set("n", "<F2>", function() vim.cmd('Lspsaga rename') end)
 
 -- diagnostics window
-vim.keymap.set("n", "<leader>d", require("lspsaga.diagnostic").show_line_diagnostics)
+vim.keymap.set("n", "<leader>d", function() vim.cmd('Lspsaga show_line_diagnostics') end)
 -- diagnostics navigation
-vim.keymap.set('n', '<leader>[', require("lspsaga.diagnostic").goto_prev)
-vim.keymap.set('n', '<leader>]', require("lspsaga.diagnostic").goto_next)
+vim.keymap.set('n', '<leader>[', function() vim.cmd('Lspsaga diagnostic_jump_prev') end)
+vim.keymap.set('n', '<leader>]', function() vim.cmd('Lspsaga diagnostic_jump_next') end)
 -- action window
 vim.keymap.set("n", "<leader>a", function() vim.cmd('Lspsaga code_action') end)
 vim.keymap.set("v", "<leader>a", function() vim.cmd('Lspsaga range_code_action') end)
@@ -38,7 +38,7 @@ vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
 vim.api.nvim_create_user_command('OL', ":LSoutlineToggle", {})
 
 -- show documentation
-vim.keymap.set("n", "K", require("lspsaga.hover").render_hover_doc)
+vim.keymap.set("n", "K", function() vim.cmd('Lspsaga hover_doc') end)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 vim.keymap.set("i", "<cr>", "coc#pum#visible() ? coc#pum#confirm() : \"\\<cr>\"", { expr = true })
