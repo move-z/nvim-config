@@ -28,3 +28,9 @@ vim.fn.sign_define('DapBreakpointCondition', {text='❓', texthl='', linehl='', 
 vim.fn.sign_define('DapBreakpointRejected', {text='⛔', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapLogPoint', {text='📝', texthl='', linehl='', numhl=''})
 
+local function open_nvim_tree()
+    -- always open the tree
+    require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

@@ -39,12 +39,9 @@ require('packer').startup(function(use)
   -- tree view
   use {
     'nvim-tree/nvim-tree.lua',
-    requires = {'nvim-tree/nvim-web-devicons'},
+    -- requires = {'nvim-tree/nvim-web-devicons'},
     config = function()
       require('nvim-tree').setup {
-        open_on_setup = true,
-        open_on_setup_file = true,
-        sync_root_with_cwd = true,
         update_focused_file = {
           enable = true,
         },
