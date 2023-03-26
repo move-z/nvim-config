@@ -1,5 +1,5 @@
 -- line margins
-vim.opt.colorcolumn = "80,100,120,132"
+vim.opt.colorcolumn = "80,100"
 
 -- highlight current line
 vim.opt.cursorline = true
@@ -27,10 +27,10 @@ vim.opt.sidescrolloff = 5
 vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
--- highlight current word
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.fn.CocActionAsync('highlight')
-  end
-})
+-- Treesitter folding
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
 
+-- Completion options
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
