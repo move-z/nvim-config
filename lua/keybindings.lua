@@ -9,16 +9,13 @@ vim.keymap.set('n', "<leader>y", function() require('telescope').extensions.neoc
 -- find symbol
 vim.keymap.set('n', "<leader>s", function() vim.cmd('Telescope lsp_dynamic_workspace_symbols') end)
 -- lsp finder to find the cursor word definition and reference
-vim.keymap.set("n", "<leader>w", function() vim.cmd("Lspsaga lsp_finder") end)
+vim.keymap.set("n", "<leader>gh", function() vim.cmd("Lspsaga lsp_finder") end)
+-- code navigation
+vim.keymap.set('n', '<leader>gd', function() vim.cmd('Lspsaga goto_definition') end)
 -- find all
 vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 
 vim.keymap.set('n', '<c-l>', function() vim.cmd('nohlsearch') end)
-
--- -- code navigation
--- vim.keymap.set('n', '<leader>gd', '<Plug>(coc-definition)')
--- vim.keymap.set('n', '<leader>gt', '<Plug>(coc-type-definition)')
--- vim.keymap.set('n', '<leader>gi', '<Plug>(coc-implementation)')
 
 -- rename
 vim.keymap.set("n", "<F2>", function() vim.cmd('Lspsaga rename') end)
@@ -32,7 +29,7 @@ vim.keymap.set('n', '<leader>]', function() vim.cmd('Lspsaga diagnostic_jump_nex
 vim.keymap.set("n", "<leader>a", function() vim.cmd('Lspsaga code_action') end)
 vim.keymap.set("v", "<leader>a", function() vim.cmd('Lspsaga range_code_action') end)
 
-vim.keymap.set("n", "<leader>g", function() vim.cmd('Gitsigns preview_hunk_inline') end)
+vim.keymap.set("n", "<leader>G", function() vim.cmd('Gitsigns preview_hunk_inline') end)
 
 vim.api.nvim_create_user_command('TR', ":NvimTreeToggle", {})
 vim.api.nvim_create_user_command('OL', ":Lspsaga outline", {})
