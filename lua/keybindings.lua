@@ -31,9 +31,9 @@ vim.keymap.set("v", "<leader>a", function() vim.cmd('Lspsaga range_code_action')
 
 vim.keymap.set("n", "<leader>G", function() vim.cmd('Gitsigns preview_hunk_inline') end)
 
-vim.api.nvim_create_user_command('TR', ":NvimTreeToggle", {})
-vim.api.nvim_create_user_command('OL', ":Lspsaga outline", {})
-vim.api.nvim_create_user_command('CK', vim.diagnostic.setloclist, {})
+vim.keymap.set("n", "<leader>wt", function() vim.cmd('NvimTreeToggle') end)
+vim.keymap.set("n", "<leader>wl", function() vim.cmd('Lspsaga outline') end)
+vim.keymap.set("n", "<leader>wk", vim.diagnostic.setloclist)
 
 -- show documentation
 vim.keymap.set("n", "K", function() vim.cmd('Lspsaga hover_doc') end)
