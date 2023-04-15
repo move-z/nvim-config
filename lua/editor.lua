@@ -1,8 +1,20 @@
+-- block cursor
+-- vim.opt.guicursor = ""
+
 -- line margins
-vim.opt.colorcolumn = "80,100"
+vim.opt.colorcolumn = "80,100,132"
 
 -- highlight current line
 vim.opt.cursorline = true
+
+-- tab options
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- enable smart indent
+vim.opt.smartindent = true
 
 -- show special characters
 vim.opt.list = true
@@ -11,21 +23,17 @@ vim.opt.list = true
 vim.opt.listchars = "tab:⟩ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨"
 
 -- show line numbers
--- vim.opt.number = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- show 3 lines of context on scroll
 vim.opt.scrolloff = 3
 
--- show matching parentheses
-vim.opt.showmatch = true
-
 -- show 5 characters of context on scroll
 vim.opt.sidescrolloff = 5
 
--- spell checking
-vim.opt.spell = true
-vim.opt.spelllang = "en,it"
+-- show matching parentheses
+vim.opt.showmatch = true
 
 -- Treesitter folding
 vim.opt.foldmethod = 'expr'
@@ -34,3 +42,8 @@ vim.opt.foldenable = false
 
 -- Completion options
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
+
+-- spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en,it"
+
