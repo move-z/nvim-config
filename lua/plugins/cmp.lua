@@ -1,9 +1,41 @@
 return {
+  -- requires setup
+  {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('crates').setup()
+    end
+  },
+  -- requires setup
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end
+  },
+  -- cmp
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
+      -- lsp
+      'hrsh7th/cmp-nvim-lsp',
+      -- buffer
+      'hrsh7th/cmp-buffer',
+      -- internal spell checker
+      'f3fora/cmp-spell',
+      -- system paths
+      'hrsh7th/cmp-path',
+      -- show function parameters
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      -- insert parentheses
       'windwp/nvim-autopairs',
+      -- improved ui
       'onsails/lspkind.nvim',
+      -- rust crate version completion
       'saecki/crates.nvim',
     },
     config = function()
@@ -61,10 +93,5 @@ return {
       )
     end
   },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-buffer' },
-  { 'f3fora/cmp-spell' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
 }
 

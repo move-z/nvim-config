@@ -1,4 +1,5 @@
 return {
+  -- debugger
   {
     'mfussenegger/nvim-dap',
     config = function()
@@ -24,6 +25,7 @@ return {
       dap.configurations.rust = dap.configurations.c
     end
   },
+  -- improved ui
   {
     'rcarriga/nvim-dap-ui',
     config = function()
@@ -46,6 +48,7 @@ return {
       end
     end
   },
+  -- show var values as virtual text
   {
     'theHamsta/nvim-dap-virtual-text',
     config = function()

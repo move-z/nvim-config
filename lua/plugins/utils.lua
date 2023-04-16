@@ -1,4 +1,12 @@
 return {
+  -- jump to pattern
+  {
+    'phaazon/hop.nvim',
+    config = function()
+      require'hop'.setup()
+    end
+  },
+  -- file tree
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
@@ -12,11 +20,11 @@ return {
         modified = {
           enable = true,
         },
-        actions = {
-          open_file = {
-            quit_on_open = true,
-          },
-        },
+--        actions = {
+--          open_file = {
+--            quit_on_open = true,
+--          },
+--        },
         filters = {
           dotfiles = true,
         }
@@ -50,4 +58,3 @@ return {
     end
   },
 }
-

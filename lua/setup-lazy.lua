@@ -20,7 +20,5 @@ require("lazy").setup({
 
 -- plugins to evaluate:
 -- editorconfig/editorconfig-vim
--- phaazon/hop.nvim
 -- simnalamburt/vim-mundo or telescope-undo.nvim
 -- sudormrfbin/cheatsheet.nvim
--- tpope/vim-fugitive
