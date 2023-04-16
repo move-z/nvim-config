@@ -49,6 +49,11 @@ vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 -- rename
 vim.keymap.set("n", "<F2>", function() vim.cmd('Lspsaga rename') end)
 
+-- format code
+vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
+vim.keymap.set("n", "<leader>gf", function() vim.lsp.buf.format() end)
+vim.keymap.set("v", "<leader>gf", function() vim.lsp.buf.format() end)
+
 -- show documentation
 vim.keymap.set("n", "K", function() vim.cmd('Lspsaga hover_doc') end)
 

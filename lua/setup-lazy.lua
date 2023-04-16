@@ -20,5 +20,5 @@ require("lazy").setup({
 
 -- plugins to evaluate:
 -- editorconfig/editorconfig-vim
--- simnalamburt/vim-mundo or telescope-undo.nvim
 -- sudormrfbin/cheatsheet.nvim
+-- stevearc/oil.nvim
