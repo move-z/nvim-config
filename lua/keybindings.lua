@@ -29,6 +29,9 @@ vim.api.nvim_create_user_command('Q', ':BufferClose', {})
 vim.keymap.set('n', '<a-b>', '<cmd>BufferPick<CR>')
 vim.keymap.set('n', "<leader>b", function() vim.cmd('Telescope buffers') end)
 
+-- file by name
+vim.keymap.set('n', "<leader>u", function() vim.cmd('Telescope undo') end)
+
 -- jump to pattern
 vim.keymap.set('n', "<leader>h", function() vim.cmd('HopPattern') end)
 -- file by name
@@ -39,12 +42,13 @@ vim.keymap.set('n', "<leader>F", function() require("telescope").extensions.live
 vim.keymap.set('n', "<leader>c", function() require('telescope').extensions.neoclip.default() end)
 -- find symbol
 vim.keymap.set('n', "<leader>s", function() vim.cmd('Telescope lsp_dynamic_workspace_symbols') end)
+-- find all
+vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
+
 -- lsp finder to find the cursor word definition and reference
 vim.keymap.set("n", "<leader>gh", function() vim.cmd("Lspsaga lsp_finder") end)
 -- code navigation
 vim.keymap.set('n', '<leader>gd', function() vim.cmd('Lspsaga goto_definition') end)
--- find all
-vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 
 -- rename
 vim.keymap.set("n", "<F2>", function() vim.cmd('Lspsaga rename') end)
