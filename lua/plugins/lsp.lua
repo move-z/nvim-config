@@ -42,11 +42,11 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          'pylsp',
           'rust_analyzer',
         }
       })
-      require("lspconfig")["gopls"].setup{}
-      require("lspconfig")["pyright"].setup{}
+      require("lspconfig")["pylsp"].setup{}
       require("lspconfig")["rust_analyzer"].setup{}
     end
   },
