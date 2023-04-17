@@ -21,26 +21,44 @@ return {
       require("nvim-autopairs").setup({})
     end
   },
+  -- snippet engine
+  {
+    'dcampos/nvim-snippy',
+    dependencies = {
+      'honza/vim-snippets', -- snippet collection
+    },
+    lazy = true,
+  },
+  -- snippet integration
+  {
+    'dcampos/cmp-snippy',
+    dependencies = {
+      'dcampos/nvim-snippy',
+    },
+    lazy = true,
+  },
   -- cmp
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- lsp
       'hrsh7th/cmp-nvim-lsp',
+      -- snippets
+      'dcampos/cmp-snippy',
       -- buffer
       'hrsh7th/cmp-buffer',
-      -- internal spell checker
-      'f3fora/cmp-spell',
       -- system paths
       'hrsh7th/cmp-path',
+      -- rust crate version completion
+      'saecki/crates.nvim',
+      -- internal spell checker
+      'f3fora/cmp-spell',
       -- show function parameters
       'hrsh7th/cmp-nvim-lsp-signature-help',
       -- insert parentheses
       'windwp/nvim-autopairs',
       -- improved ui
       'onsails/lspkind.nvim',
-      -- rust crate version completion
-      'saecki/crates.nvim',
     },
     config = function()
       -- Completion Plugin Setup
@@ -75,6 +93,7 @@ return {
           { name = 'spell' },
           { name = 'path' },
           { name = 'crates' },
+          { name = 'snippy' },
         },
         window = {
             completion = cmp.config.window.bordered(),
@@ -86,7 +105,12 @@ return {
             -- maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             -- ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           })
-        }
+        },
+        snippet = {
+          expand = function(args)
+            require 'snippy'.expand_snippet(args.body)
+          end
+        },
       })
 
       -- If you want insert `(` after select function or method item
