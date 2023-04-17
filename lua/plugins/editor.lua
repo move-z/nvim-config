@@ -30,6 +30,8 @@ return {
       require'treesitter-context'.setup{}
     end
   },
+  -- insert copyright
+  { "rdipardo/vim-cpywrite" },
 }
 
 

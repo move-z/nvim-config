@@ -47,3 +47,6 @@ vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
+-- default copyright
+vim.g["cpywrite#default_license"] = "GPL-3.0-or-later"
+
