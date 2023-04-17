@@ -95,3 +95,13 @@ vim.api.nvim_create_user_command('CrateVersions', function() require('crates').s
 vim.api.nvim_create_user_command('CrateFeatures', function() require('crates').show_features_popup() end, {})
 vim.api.nvim_create_user_command('CrateDependencies', function() require('crates').show_dependencies_popup() end, {})
 
+-- insert license
+vim.api.nvim_create_user_command(
+    'License',
+    function(opts)
+      vim.cmd('CPYwrite ' .. opts.args or '')
+    end,
+    {
+      nargs = 1,
+      complete = "customlist,cpywrite#licenses#GetLicenseList",
+    })
