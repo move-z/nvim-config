@@ -7,7 +7,11 @@ return {
       'nvim-lua/plenary.nvim',
     },
     config = function()
-      require('crates').setup()
+      require('crates').setup({
+        null_ls = {
+          enabled = true,
+        }
+      })
     end
   },
   -- requires setup

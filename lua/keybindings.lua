@@ -87,3 +87,9 @@ vim.keymap.set('n', 'zr', function() vim.cmd('spellrare ' .. vim.fn.expand('<cwo
 vim.keymap.set('n', 'zR', function() vim.cmd('spellrare! ' .. vim.fn.expand('<cword>')) end)
 vim.keymap.set('n', 'zur', function() vim.cmd('spellundo ' .. vim.fn.expand('<cword>')) end)
 
+-- specific commands for crates
+vim.api.nvim_create_user_command('CratePopup', function() require('crates').show_crate_popup() end, {})
+vim.api.nvim_create_user_command('CrateVersions', function() require('crates').show_versions_popup() end, {})
+vim.api.nvim_create_user_command('CrateFeatures', function() require('crates').show_features_popup() end, {})
+vim.api.nvim_create_user_command('CrateDependencies', function() require('crates').show_dependencies_popup() end, {})
+
