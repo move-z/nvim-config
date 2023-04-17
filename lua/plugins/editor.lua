@@ -16,7 +16,7 @@ return {
           enable = true,
         },
         -- needed by lspsaga
-        ensure_installed = { "markdown", "markdown_inline" },
+        ensure_installed = { "vim", "regex", "lua", "bash", "markdown", "markdown_inline" },
       })
     end
   },
