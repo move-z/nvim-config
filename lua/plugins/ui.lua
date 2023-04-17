@@ -35,6 +35,28 @@ return {
       })
     end,
   },
+  -- message ui
+  {
+    "folke/noice.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup({
+        -- popupmenu = {
+        --   backend = "cmp",
+        -- },
+        presets = {
+          long_message_to_split = true,
+        },
+      })
+    end
+  },
+  -- ui select
+  {
+    "stevearc/dressing.nvim"
+  },
   -- highlight current word
   {
     'RRethy/vim-illuminate'
@@ -52,24 +74,6 @@ return {
           "Comment",
         },
       }
-    end
-  },
-  -- message ui
-  {
-    "folke/noice.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    config = function()
-      require("noice").setup({
-        -- popupmenu = {
-        --   backend = "cmp",
-        -- },
-        presets = {
-          long_message_to_split = true,
-        },
-      })
     end
   },
 }
