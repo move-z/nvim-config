@@ -16,6 +16,9 @@ vim.opt.expandtab = true
 -- enable smart indent
 vim.opt.smartindent = true
 
+-- indent wrapped lines
+vim.opt.breakindent = true
+
 -- show special characters
 vim.opt.list = true
 

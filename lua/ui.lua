@@ -11,9 +11,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- colors in terminal (doesn't seem to work)
-vim.opt.termguicolors = true
-
 -- configure float terminal
 vim.g.floaterm_height = 0.99
 vim.g.floaterm_width = 0.99
