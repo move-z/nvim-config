@@ -65,7 +65,14 @@ return {
       -- "rcarriga/nvim-notify",
     },
     config = function()
-      require("noice").setup({})
+      require("noice").setup({
+        popupmenu = {
+          backend = "cmp",
+        },
+        presets = {
+          long_message_to_split = true,
+        },
+      })
     end
   },
 }
