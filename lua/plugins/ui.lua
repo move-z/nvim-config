@@ -66,9 +66,9 @@ return {
     },
     config = function()
       require("noice").setup({
-        popupmenu = {
-          backend = "cmp",
-        },
+        -- popupmenu = {
+        --   backend = "cmp",
+        -- },
         presets = {
           long_message_to_split = true,
         },
