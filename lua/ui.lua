@@ -14,6 +14,10 @@ vim.opt.splitbelow = true
 -- colors in terminal (doesn't seem to work)
 vim.opt.termguicolors = true
 
+-- configure float terminal
+vim.g.floaterm_height = 0.99
+vim.g.floaterm_width = 0.99
+
 vim.fn.sign_define( "DiagnosticSignError", { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" })
 vim.fn.sign_define( "DiagnosticSignWarn", { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" })
 vim.fn.sign_define( "DiagnosticSignHint", { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" })
