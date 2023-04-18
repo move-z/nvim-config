@@ -102,6 +102,6 @@ vim.api.nvim_create_user_command(
       vim.cmd('CPYwrite ' .. opts.args or '')
     end,
     {
-      nargs = 1,
+      nargs = '?',
       complete = "customlist,cpywrite#licenses#GetLicenseList",
     })
