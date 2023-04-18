@@ -50,6 +50,8 @@ vim.keymap.set("n", '<F12>', '<cmd>FloatermToggle<CR>')
 vim.keymap.set("t", '<F12>', '<c-\\><c-n><cmd>FloatermToggle<CR>')
 -- Saner escape on terminal
 vim.keymap.set('t', '<a-esc>', '<c-\\><c-n>')
+-- run vim cmd
+vim.keymap.set('t', '<a-c>', '<c-\\><c-n>')
 
 -- lsp finder to find the cursor word definition and reference
 vim.keymap.set("n", "<leader>gh", function() vim.cmd("Lspsaga lsp_finder") end)
