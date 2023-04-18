@@ -63,6 +63,8 @@ return {
         },
       })
     end
-  }
+  },
+  -- support for slint
+  { 'slint-ui/vim-slint' },
 }
 
