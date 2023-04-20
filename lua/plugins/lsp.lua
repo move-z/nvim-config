@@ -48,6 +48,7 @@ return {
       })
       require("lspconfig")["pylsp"].setup{}
       require("lspconfig")["rust_analyzer"].setup{}
+      require("lspconfig")["slint_lsp"].setup{}
     end
   },
   -- for tools that don't support lsp
@@ -59,8 +60,11 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.code_actions.gitsigns,
-          null_ls.builtins.formatting.rustfmt,
+          null_ls.builtins.formatting.rustfmt
         },
+        should_attach = function(bufnr)
+          return not vim.api.nvim_buf_get_option(bufnr, "filetype"):match("^slint$")
+        end,
       })
     end
   },
