@@ -90,7 +90,14 @@ return {
           { name = 'nvim_lsp' },
           { name = 'nvim_lsp_signature_help'},
           { name = 'buffer' },
-          { name = 'spell' },
+          {
+            name = 'spell',
+            option = {
+              enable_in_context = function()
+                return require('cmp.config.context').in_treesitter_capture('spell')
+              end
+            }
+          },
           { name = 'path' },
           { name = 'crates' },
           { name = 'snippy' },
