@@ -43,7 +43,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           'pylsp',
-          'rust_analyzer',
         }
       })
       require("lspconfig")["pylsp"].setup{}
