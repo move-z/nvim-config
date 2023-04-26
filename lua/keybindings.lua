@@ -46,8 +46,8 @@ vim.keymap.set('n', "<leader>s", function() vim.cmd('Telescope lsp_dynamic_works
 vim.keymap.set('n', "<leader>?", function() vim.cmd('Telescope commands') end)
 
 -- terminal
-vim.keymap.set("n", '<F12>', '<cmd>FloatermToggle<CR>')
-vim.keymap.set("t", '<F12>', '<c-\\><c-n><cmd>FloatermToggle<CR>')
+vim.keymap.set("n", '<f60>', '<cmd>FloatermToggle<CR>')
+vim.keymap.set("t", '<f60>', '<c-\\><c-n><cmd>FloatermToggle<CR>')
 -- Saner escape on terminal
 vim.keymap.set('t', '<a-esc>', '<c-\\><c-n>')
 -- run vim cmd
