@@ -2,6 +2,7 @@ return {
   -- debugger
   {
     'mfussenegger/nvim-dap',
+    tag = '0.6.0',
     config = function()
       local dap = require('dap')
       dap.adapters.lldb = {
@@ -28,6 +29,7 @@ return {
   -- improved ui
   {
     'rcarriga/nvim-dap-ui',
+    tag = 'v3.8.1',
     config = function()
       local dap, dapui = require("dap"), require("dapui")
       local api = require("nvim-tree.api")

@@ -6,6 +6,7 @@ return {
   -- treesitter syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
+    tag = 'v0.9.0',
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })
     end, 
@@ -31,7 +32,10 @@ return {
     end
   },
   -- insert copyright
-  { "rdipardo/vim-cpywrite" },
+  {
+    "rdipardo/vim-cpywrite",
+    tag = 'v0.7.0',
+  },
 }
 
 

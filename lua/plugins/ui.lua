@@ -2,6 +2,7 @@ return {
   -- color scheme
   {
     "sainnhe/everforest",
+    tag = 'v0.3.0',
     lazy = false,
     priority = 1000,
     config = function()
@@ -11,6 +12,7 @@ return {
   -- tab bar
   {
     'romgrk/barbar.nvim',
+    tag = 'v1.6.5',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
@@ -28,6 +30,7 @@ return {
   -- message ui
   {
     "folke/noice.nvim",
+    tag = 'v1.12.4',
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",

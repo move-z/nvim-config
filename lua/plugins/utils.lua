@@ -2,6 +2,7 @@ return {
   -- jump to pattern
   {
     'phaazon/hop.nvim',
+    tag = 'v2.0.3',
     config = function()
       require'hop'.setup()
     end

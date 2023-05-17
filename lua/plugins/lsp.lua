@@ -2,6 +2,7 @@ return {
   -- lspsaga
   {
     "glepnir/lspsaga.nvim",
+    tag = 'v0.2.9',
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       -- Please make sure you install markdown and markdown_inline parser
@@ -28,6 +29,7 @@ return {
   -- mason to manage tools installation
   {
     'williamboman/mason.nvim',
+    tag = 'v1.0.1',
     config = function()
       require("mason").setup()
     end
@@ -35,6 +37,7 @@ return {
   -- automatically download tools
   {
     'williamboman/mason-lspconfig.nvim',
+    tag = 'v1.4.0',
     dependencies = {
       'williamboman/mason.nvim',
     },
@@ -55,6 +58,7 @@ return {
   -- register tools
   {
     'neovim/nvim-lspconfig',
+    tag = 'v0.1.4',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
     },
