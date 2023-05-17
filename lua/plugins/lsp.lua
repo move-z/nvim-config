@@ -32,27 +32,43 @@ return {
       require("mason").setup()
     end
   },
-  -- automatically register tools
+  -- automatically download tools
   {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
       'williamboman/mason.nvim',
-      'neovim/nvim-lspconfig',
     },
     config = function()
-      require("mason-lspconfig").setup({
+      local ml = require("mason-lspconfig")
+      ml.setup({
         ensure_installed = {
           'pylsp',
         }
       })
+      ml.setup_handlers {
+        function (server_name) -- default handler (optional)
+          require("lspconfig")[server_name].setup {}
+        end,
+      }
+    end
+  },
+  -- register tools
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
+    config = function()
       require("lspconfig")["pylsp"].setup{}
       require("lspconfig")["rust_analyzer"].setup{}
-      require("lspconfig")["slint_lsp"].setup{}
     end
   },
   -- for tools that don't support lsp
   {
     'jose-elias-alvarez/null-ls.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
     config = function()
       local null_ls = require("null-ls")
 
@@ -61,13 +77,18 @@ return {
           null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.formatting.rustfmt
         },
-        should_attach = function(bufnr)
-          return not vim.api.nvim_buf_get_option(bufnr, "filetype"):match("^slint$")
-        end,
       })
     end
   },
-  -- support for slint
-  { 'slint-ui/vim-slint' },
+  -- improved rust support
+  {
+    'simrat39/rust-tools.nvim',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+    config = function()
+      require('rust-tools').setup {}
+    end
+  },
 }
 
