@@ -9,44 +9,58 @@ return {
   },
   -- file tree
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
     dependencies = {
-      "nvim-tree/nvim-web-devicons"
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
     },
     config = function()
-      require('nvim-tree').setup({
-        update_focused_file = {
-          enable = true,
+      require("neo-tree").setup({
+        default_component_configs = {
+          icon = {
+            -- folder_empty = "",
+            folder_empty = "",
+            folder_empty_open = "",
+          },
+          git_status = {
+            symbols = {
+              renamed   = "󰁕",
+              unstaged  = "",
+            },
+          },
         },
-        modified = {
-          enable = true,
+        document_symbols = {
+          kinds = {
+            File = { icon = "󰈙", hl = "Tag" },
+            Namespace = { icon = "󰌗", hl = "Include" },
+            Package = { icon = "󰏖", hl = "Label" },
+            Class = { icon = "󰌗", hl = "Include" },
+            Property = { icon = "󰆧", hl = "@property" },
+            Enum = { icon = "󰒻", hl = "@number" },
+            Function = { icon = "󰊕", hl = "Function" },
+            String = { icon = "󰀬", hl = "String" },
+            Number = { icon = "󰎠", hl = "Number" },
+            Array = { icon = "󰅪", hl = "Type" },
+            Object = { icon = "󰅩", hl = "Type" },
+            Key = { icon = "󰌋", hl = "" },
+            Struct = { icon = "󰌗", hl = "Type" },
+            Operator = { icon = "󰆕", hl = "Operator" },
+            TypeParameter = { icon = "󰊄", hl = "Type" },
+            StaticMethod = { icon = '󰠄 ', hl = 'Function' },
+          }
         },
---        actions = {
---          open_file = {
---            quit_on_open = true,
---          },
---        },
-        filters = {
-          dotfiles = true,
-        }
+        -- Add this section only if you've configured source selector.
+        source_selector = {
+          winbar = true,
+          sources = {
+            { source = "filesystem", display_name = " 󰉓 Files " },
+            { source = "buffers", display_name = "  Buffers " },
+            { source = "git_status", display_name = " 󰊢 Git " },
+          },
+        },
       })
-
-      local function open_nvim_tree(data)
-        -- buffer is a directory
-        local directory = vim.fn.isdirectory(data.file) == 1
-
-        -- buffer is a [No Name]
-        local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-
-        if not directory and not no_name then
-          return
-        end
-
-        -- open the tree, find the file but don't focus it
-        require("nvim-tree.api").tree.open()
-      end
-
-      vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
     end
   },
   {

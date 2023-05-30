@@ -83,9 +83,8 @@ vim.keymap.set("v", "<leader>a", function() vim.cmd('Lspsaga range_code_action')
 
 vim.keymap.set("n", "<leader>G", function() vim.cmd('Gitsigns preview_hunk_inline') end)
 
-vim.keymap.set("n", "<leader>t", function() vim.cmd('NvimTreeToggle') end)
+vim.keymap.set("n", "<leader>t", function() vim.cmd('Neotree toggle') end)
 vim.keymap.set("n", "<leader>l", function() vim.cmd('Lspsaga outline') end)
-vim.api.nvim_create_user_command('K', vim.diagnostic.setloclist, {})
 
 -- Spell check add rare word
 vim.keymap.set('n', 'zr', function() vim.cmd('spellrare ' .. vim.fn.expand('<cword>')) end)

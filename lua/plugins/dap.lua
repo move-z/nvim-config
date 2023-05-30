@@ -32,21 +32,18 @@ return {
     tag = 'v3.8.1',
     config = function()
       local dap, dapui = require("dap"), require("dapui")
-      local api = require("nvim-tree.api")
 
       dapui.setup()
 
       dap.listeners.after.event_initialized["dapui_config"] = function()
-        api.tree.close()
+        require("neo-tree").close_all()
         dapui.open()
       end
       dap.listeners.before.event_terminated["dapui_config"] = function()
         dapui.close()
-        api.tree.open()
       end
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
-        api.tree.open()
       end
     end
   },
