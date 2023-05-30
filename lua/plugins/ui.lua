@@ -12,10 +12,11 @@ return {
   -- tab bar
   {
     'romgrk/barbar.nvim',
-    tag = 'v1.6.5',
     dependencies = {
+      'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons'
     },
+    version = '^1.0.0',
   },
   -- status line
   {
@@ -23,7 +24,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons"
     },
-    config = function() 
+    config = function()
       require("lualine").setup({})
     end,
   },
