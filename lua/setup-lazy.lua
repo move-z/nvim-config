@@ -18,7 +18,3 @@ require("lazy").setup({
   },
 })
 
--- plugins to evaluate:
--- editorconfig/editorconfig-vim
--- sudormrfbin/cheatsheet.nvim
--- stevearc/oil.nvim

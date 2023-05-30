@@ -73,7 +73,7 @@ vim.keymap.set("v", "<leader>gf", function() vim.lsp.buf.format() end)
 vim.keymap.set("n", "K", function() vim.cmd('Lspsaga hover_doc') end)
 
 -- diagnostics window
-vim.keymap.set("n", "<leader>k", function() vim.diagnostic.open_float(nil, { focusable = false }) end)
+vim.keymap.set("n", "<leader>k", function() vim.cmd('Lspsaga show_buf_diagnostics') end)
 -- diagnostics navigation
 vim.keymap.set('n', '<leader>[', function() vim.cmd('Lspsaga diagnostic_jump_prev') end)
 vim.keymap.set('n', '<leader>]', function() vim.cmd('Lspsaga diagnostic_jump_next') end)
