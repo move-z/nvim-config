@@ -18,6 +18,19 @@ return {
     },
     config = function()
       require("neo-tree").setup({
+        source_selector = {
+          winbar = true,
+          sources = {
+            { source = "filesystem", display_name = " 󰉓 Files " },
+            { source = "buffers", display_name = "  Buffers " },
+            { source = "git_status", display_name = " 󰊢 Git " },
+          },
+        },
+        filesystem = {
+          window = {
+            position = "float"
+          }
+        },
         default_component_configs = {
           icon = {
             -- folder_empty = "",
@@ -50,15 +63,6 @@ return {
             TypeParameter = { icon = "󰊄", hl = "Type" },
             StaticMethod = { icon = '󰠄 ', hl = 'Function' },
           }
-        },
-        -- Add this section only if you've configured source selector.
-        source_selector = {
-          winbar = true,
-          sources = {
-            { source = "filesystem", display_name = " 󰉓 Files " },
-            { source = "buffers", display_name = "  Buffers " },
-            { source = "git_status", display_name = " 󰊢 Git " },
-          },
         },
       })
     end
