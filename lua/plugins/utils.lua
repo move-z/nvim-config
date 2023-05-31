@@ -1,13 +1,23 @@
 return {
   -- jump to pattern
   {
-    'phaazon/hop.nvim',
-    tag = 'v2.0.3',
+    'ggandor/leap.nvim',
+    dependencies = {
+      "tpope/vim-repeat"
+    },
     config = function()
-      require'hop'.setup()
+      require('leap').add_default_mappings()
     end
   },
-  -- file tree
+  {
+    'ggandor/flit.nvim',
+    dependencies = {
+      'ggandor/leap.nvim',
+    },
+    config = function()
+      require('flit').setup({})
+    end
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",

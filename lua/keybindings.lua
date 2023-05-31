@@ -32,8 +32,6 @@ vim.keymap.set('n', "<leader>b", function() vim.cmd('Telescope buffers') end)
 -- file by name
 vim.keymap.set('n', "<leader>u", function() vim.cmd('Telescope undo') end)
 
--- jump to pattern
-vim.keymap.set('n', "<leader>h", function() vim.cmd('HopPattern') end)
 -- file by name
 vim.keymap.set('n', "<leader>f", function() vim.cmd('Telescope find_files') end)
 -- live grep
