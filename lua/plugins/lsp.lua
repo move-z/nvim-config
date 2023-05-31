@@ -70,7 +70,7 @@ return {
   -- mason to manage tools installation
   {
     'williamboman/mason.nvim',
-    tag = 'v1.0.1',
+    tag = 'v1.1.1',
     config = function()
       require("mason").setup()
     end
