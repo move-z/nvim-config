@@ -19,6 +19,12 @@ return {
     end
   },
   {
+    'axkirillov/hbac.nvim',
+    config = function ()
+      require("hbac").setup()
+    end
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     dependencies = {
