@@ -29,7 +29,7 @@ return {
   -- improved ui
   {
     'rcarriga/nvim-dap-ui',
-    tag = 'v3.8.1',
+    tag = 'v3.8.4',
     config = function()
       local dap, dapui = require("dap"), require("dapui")
 

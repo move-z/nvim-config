@@ -31,7 +31,7 @@ return {
   -- message ui
   {
     "folke/noice.nvim",
-    tag = 'v1.12.4',
+    tag = 'v1.15.10',
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
