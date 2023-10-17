@@ -58,15 +58,13 @@ return {
   -- show indentation guides
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
+    tag = 'v3.3.2',
     config = function()
-      require("indent_blankline").setup {
-        space_char_blankline = " ",
-        space_char_highlight_list = {
-          "Comment",
-        },
-        char_highlight_list = {
-          "Comment",
-        },
+      require("ibl").setup {
+       whitespace = {
+         remove_blankline_trail = true,
+       }
       }
     end
   },
