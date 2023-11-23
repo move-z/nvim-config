@@ -69,7 +69,7 @@ return {
   -- mason to manage tools installation
   {
     'williamboman/mason.nvim',
-    tag = 'v1.7.0',
+    version = 'v1.8.x',
     config = function()
       require("mason").setup()
     end
@@ -77,7 +77,7 @@ return {
   -- automatically download tools
   {
     'williamboman/mason-lspconfig.nvim',
-    tag = 'v1.14.0',
+    version = 'v1.23.x',
     dependencies = {
       'williamboman/mason.nvim',
     },
@@ -98,7 +98,7 @@ return {
   -- register tools
   {
     'neovim/nvim-lspconfig',
-    tag = 'v0.1.6',
+    version = 'v0.1.x',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
     },

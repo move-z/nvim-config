@@ -2,7 +2,7 @@ return {
   -- requires setup
   {
     'saecki/crates.nvim',
-    tag = 'v0.3.0',
+    version = 'v0.4.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
@@ -24,6 +24,7 @@ return {
   -- snippet engine
   {
     'dcampos/nvim-snippy',
+    version = 'v1.0.x',
     dependencies = {
       'honza/vim-snippets', -- snippet collection
     },

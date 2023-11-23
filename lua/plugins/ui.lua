@@ -2,7 +2,7 @@ return {
   -- color scheme
   {
     "sainnhe/everforest",
-    tag = 'v0.3.0',
+    version = 'v0.3.x',
     lazy = false,
     priority = 1000,
     config = function()
@@ -16,7 +16,7 @@ return {
       'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons'
     },
-    version = '^1.0.0',
+    version = '1.7.x',
   },
   -- status line
   {
@@ -31,7 +31,7 @@ return {
   -- message ui
   {
     "folke/noice.nvim",
-    tag = 'v1.15.10',
+    version = 'v1.16.x',
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
@@ -49,7 +49,8 @@ return {
   },
   -- ui select
   {
-    "stevearc/dressing.nvim"
+    "stevearc/dressing.nvim",
+    version = 'v2.0.x'
   },
   -- highlight current word
   {

@@ -2,7 +2,7 @@ return {
   -- finder
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    version = 'v0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('telescope').setup({
@@ -33,6 +33,7 @@ return {
   -- search file content
   {
     'nvim-telescope/telescope-live-grep-args.nvim',
+    version = 'v1.0.x',
     dependencies = {
       {'nvim-telescope/telescope.nvim'},
     },
