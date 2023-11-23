@@ -55,17 +55,14 @@ return {
   {
     'RRethy/vim-illuminate'
   },
+
   -- show indentation guides
   {
     'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
-    tag = 'v3.3.2',
+    version = '3.3.x',
     config = function()
-      require("ibl").setup {
-       whitespace = {
-         remove_blankline_trail = true,
-       }
-      }
+      require("ibl").setup {}
     end
   },
 }
