@@ -33,9 +33,9 @@ return {
     end
   },
   -- insert copyright
-  {
-    "rdipardo/vim-cpywrite",
-    version = 'v0.8.x',
-  },
+  -- {
+  --   "rdipardo/vim-cpywrite",
+  --   version = 'v0.8.x',
+  -- },
 }
 

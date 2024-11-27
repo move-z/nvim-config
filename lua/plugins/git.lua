@@ -8,5 +8,5 @@ return {
     end
   },
   -- git integration
-  { "tpope/vim-fugitive" },
+  -- { "tpope/vim-fugitive" },
 }

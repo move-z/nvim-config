@@ -51,5 +51,5 @@ vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
 -- default copyright
-vim.g["cpywrite#default_license"] = "GPL-3.0-or-later"
+-- vim.g["cpywrite#default_license"] = "GPL-3.0-or-later"
 

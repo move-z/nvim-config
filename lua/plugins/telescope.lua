@@ -8,10 +8,10 @@ return {
       require('telescope').setup({
         defaults = {
           layout_strategy = 'vertical',
-          layout_config = {
-            height = 0.99,
-            width = 0.99,
-          }
+          -- layout_config = {
+          --   height = 0.99,
+          --   width = 0.99,
+          -- }
         },
         live_grep_args = {
           auto_quoting = false

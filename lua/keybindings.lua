@@ -90,18 +90,18 @@ vim.keymap.set('n', 'zR', function() vim.cmd('spellrare! ' .. vim.fn.expand('<cw
 vim.keymap.set('n', 'zur', function() vim.cmd('spellundo ' .. vim.fn.expand('<cword>')) end)
 
 -- specific commands for crates
-vim.api.nvim_create_user_command('CratePopup', function() require('crates').show_crate_popup() end, {})
-vim.api.nvim_create_user_command('CrateVersions', function() require('crates').show_versions_popup() end, {})
-vim.api.nvim_create_user_command('CrateFeatures', function() require('crates').show_features_popup() end, {})
-vim.api.nvim_create_user_command('CrateDependencies', function() require('crates').show_dependencies_popup() end, {})
+-- vim.api.nvim_create_user_command('CratePopup', function() require('crates').show_crate_popup() end, {})
+-- vim.api.nvim_create_user_command('CrateVersions', function() require('crates').show_versions_popup() end, {})
+-- vim.api.nvim_create_user_command('CrateFeatures', function() require('crates').show_features_popup() end, {})
+-- vim.api.nvim_create_user_command('CrateDependencies', function() require('crates').show_dependencies_popup() end, {})
 
 -- insert license
-vim.api.nvim_create_user_command(
-    'License',
-    function(opts)
-      vim.cmd('CPYwrite ' .. opts.args or '')
-    end,
-    {
-      nargs = '?',
-      complete = "customlist,cpywrite#licenses#GetLicenseList",
-    })
+-- vim.api.nvim_create_user_command(
+--     'License',
+--     function(opts)
+--       vim.cmd('CPYwrite ' .. opts.args or '')
+--     end,
+--     {
+--       nargs = '?',
+--       complete = "customlist,cpywrite#licenses#GetLicenseList",
+--     })
