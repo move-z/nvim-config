@@ -20,6 +20,7 @@ return {
   },
   {
     'axkirillov/hbac.nvim',
+    version = 'v3.0.x',
     config = function ()
       require("hbac").setup()
     end

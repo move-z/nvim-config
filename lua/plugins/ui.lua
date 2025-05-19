@@ -16,7 +16,22 @@ return {
       'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons'
     },
-    version = '1.9.x',
+    version = 'v1.9.x',
+  },
+  {
+    'Bekaboo/dropbar.nvim',
+        version = 'v14.0.x',
+    -- optional, but required for fuzzy finder support
+    --dependencies = {
+    --  'nvim-telescope/telescope-fzf-native.nvim',
+    --  build = 'make'
+    --},
+    --config = function()
+    --  local dropbar_api = require('dropbar.api')
+    --  vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+    --  vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
+    --  vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+    --end
   },
   -- status line
   {
@@ -31,7 +46,7 @@ return {
   -- message ui
   {
     "folke/noice.nvim",
-    version = 'v4.7.x',
+    version = 'v4.10.x',
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
@@ -49,8 +64,10 @@ return {
   },
   -- ui select
   {
-    "stevearc/dressing.nvim",
-    version = 'v3.1.x'
+    "folke/snacks.nvim",
+    version = 'v2.22.x',
+    lazy = false,
+    enabled = true,
   },
   -- highlight current word
   {
@@ -61,7 +78,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
-    version = '3.8.x',
+    version = '3.9.x',
     config = function()
       require("ibl").setup {}
     end

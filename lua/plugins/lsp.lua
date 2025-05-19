@@ -68,16 +68,16 @@ return {
   },
   -- mason to manage tools installation
   {
-    'williamboman/mason.nvim',
-    version = 'v1.10.x',
+    'mason-org/mason.nvim',
+    version = 'v2.0.x',
     config = function()
       require("mason").setup()
     end
   },
   -- automatically download tools
   {
-    'williamboman/mason-lspconfig.nvim',
-    version = 'v1.31.x',
+    'mason-org/mason-lspconfig.nvim',
+    version = 'v2.0.x',
     dependencies = {
       'williamboman/mason.nvim',
     },
@@ -88,17 +88,12 @@ return {
           'pylsp',
         }
       })
-      ml.setup_handlers {
-        function (server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup {}
-        end,
-      }
     end
   },
   -- register tools
   {
     'neovim/nvim-lspconfig',
-    version = 'v1.0.x',
+    version = 'v2.1.x',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
     },
@@ -109,7 +104,7 @@ return {
   },
   -- for tools that don't support lsp
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
@@ -118,21 +113,16 @@ return {
 
       null_ls.setup({
         sources = {
-          null_ls.builtins.code_actions.gitsigns,
-          null_ls.builtins.formatting.rustfmt
+          null_ls.builtins.code_actions.gitsigns
         },
       })
     end
   },
   -- improved rust support
   {
-    'simrat39/rust-tools.nvim',
-    dependencies = {
-      'neovim/nvim-lspconfig',
-    },
-    config = function()
-      require('rust-tools').setup {}
-    end
+    'mrcjkb/rustaceanvim',
+    version = '6.1.x',
+    lazy = false,
   },
 }
 

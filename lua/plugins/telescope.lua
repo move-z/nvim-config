@@ -41,16 +41,6 @@ return {
       require('telescope').load_extension('live_grep_args')
     end
   },
-  -- find emoji
-  {
-    'xiyaowong/telescope-emoji.nvim',
-    dependencies = {
-      {'nvim-telescope/telescope.nvim'},
-    },
-    config = function()
-      require("telescope").load_extension("emoji")
-    end
-  },
   -- clipboard history
   {
     "AckslD/nvim-neoclip.lua",
