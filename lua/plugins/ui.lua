@@ -16,7 +16,7 @@ return {
       'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons'
     },
-    version = '1.7.x',
+    version = '1.9.x',
   },
   -- status line
   {
@@ -31,7 +31,7 @@ return {
   -- message ui
   {
     "folke/noice.nvim",
-    version = 'v1.16.x',
+    version = 'v4.7.x',
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
@@ -50,7 +50,7 @@ return {
   -- ui select
   {
     "stevearc/dressing.nvim",
-    version = 'v2.0.x'
+    version = 'v3.1.x'
   },
   -- highlight current word
   {
@@ -61,7 +61,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
-    version = '3.3.x',
+    version = '3.8.x',
     config = function()
       require("ibl").setup {}
     end

@@ -33,7 +33,7 @@ return {
   -- search file content
   {
     'nvim-telescope/telescope-live-grep-args.nvim',
-    version = 'v1.0.x',
+    version = 'v1.1.x',
     dependencies = {
       {'nvim-telescope/telescope.nvim'},
     },
