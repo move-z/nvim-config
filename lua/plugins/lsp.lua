@@ -99,7 +99,7 @@ return {
     },
     config = function()
       require("lspconfig")["pylsp"].setup{}
-      require("lspconfig")["rust_analyzer"].setup{}
+--      require("lspconfig")["rust_analyzer"].setup{}
     end
   },
   -- for tools that don't support lsp

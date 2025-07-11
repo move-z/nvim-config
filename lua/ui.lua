@@ -1,3 +1,8 @@
+require("catppuccin").setup({
+  flavour = "mocha"
+})
+vim.cmd.colorscheme "catppuccin"
+
 -- unified status line
 vim.opt.laststatus = 3
 

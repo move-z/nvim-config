@@ -1,13 +1,9 @@
 return {
   -- color scheme
   {
-    "sainnhe/everforest",
-    version = 'v0.3.x',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme everforest]])
-    end,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
   },
   -- tab bar
   {
