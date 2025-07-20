@@ -9,7 +9,7 @@ return {
   {
     'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim',
+      -- 'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons'
     },
     version = 'v1.9.x',
@@ -59,16 +59,16 @@ return {
     end
   },
   -- ui select
-  {
-    "folke/snacks.nvim",
-    version = 'v2.22.x',
-    lazy = false,
-    enabled = true,
-  },
+  -- {
+  --   "folke/snacks.nvim",
+  --   version = 'v2.22.x',
+  --   lazy = false,
+  --   enabled = true,
+  -- },
   -- highlight current word
-  {
-    'RRethy/vim-illuminate'
-  },
+  -- {
+  --   'RRethy/vim-illuminate'
+  -- },
 
   -- show indentation guides
   {

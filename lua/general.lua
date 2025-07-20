@@ -1,8 +1,9 @@
 -- set in general and not in keybindings so that plugin loading sees the 
 -- correct configuration
-vim.g.mapleader = ","
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- decrease update time
+-- faster completion
 vim.opt.updatetime = 250
 
 -- still have to think about the right key to press
@@ -27,3 +28,16 @@ vim.opt.undofile = true
 -- don't save file backups in current dir
 vim.opt.backupdir = os.getenv("HOME") .. "/.local/share/nvim/backup/"
 
+-- auto reload files
+vim.opt.autoread = true
+
+-- create directories when saving files
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = autogroup,
+    callback = function()
+        local dir = vim.fn.expand('<afile>:p:h')
+        if vim.fn.isdirectory(dir) == 0 then
+            vim.fn.mkdir(dir, 'p')
+        end
+    end
+})

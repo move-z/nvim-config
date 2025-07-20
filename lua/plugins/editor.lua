@@ -1,12 +1,18 @@
 return {
+  -- {
+  --   "windwp/nvim-autopairs",
+  --   config = function()
+  --     require("nvim-autopairs").setup({})
+  --   end
+  -- },
   -- comment lines
   { "tpope/vim-commentary" },
   -- manage surrounding delimiters (parentheses, quotes, etc.)
-  { "tpope/vim-surround" },
+  -- { "tpope/vim-surround" },
   -- treesitter syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    version = 'v0.9.x',
+    version = 'v0.10.x',
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })
     end, 
@@ -25,6 +31,7 @@ return {
   -- keep function signature visible
   {
     "nvim-treesitter/nvim-treesitter-context",
+    version = 'v1.0.x',
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
@@ -32,10 +39,5 @@ return {
       require'treesitter-context'.setup{}
     end
   },
-  -- insert copyright
-  -- {
-  --   "rdipardo/vim-cpywrite",
-  --   version = 'v0.8.x',
-  -- },
 }
 

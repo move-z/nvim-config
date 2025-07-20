@@ -6,25 +6,25 @@ return {
       "tpope/vim-repeat"
     },
     config = function()
-      require('leap').add_default_mappings()
+      require('leap').set_default_mappings()
     end
   },
-  {
-    'ggandor/flit.nvim',
-    dependencies = {
-      'ggandor/leap.nvim',
-    },
-    config = function()
-      require('flit').setup({})
-    end
-  },
-  {
-    'axkirillov/hbac.nvim',
-    version = 'v3.0.x',
-    config = function ()
-      require("hbac").setup()
-    end
-  },
+  -- {
+  --   'ggandor/flit.nvim',
+  --   dependencies = {
+  --     'ggandor/leap.nvim',
+  --   },
+  --   config = function()
+  --     require('flit').setup({})
+  --   end
+  -- },
+  -- {
+  --   'axkirillov/hbac.nvim',
+  --   version = 'v3.0.x',
+  --   config = function ()
+  --     require("hbac").setup()
+  --   end
+  -- },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -84,7 +84,7 @@ return {
       })
     end
   },
-  {
-    'voldikss/vim-floaterm',
-  },
+  -- {
+  --   'voldikss/vim-floaterm',
+  -- },
 }

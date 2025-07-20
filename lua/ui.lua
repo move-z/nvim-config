@@ -10,7 +10,7 @@ vim.opt.laststatus = 3
 vim.opt.mouse = "a"
 
 -- leave space for code diagnostics
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 
 -- open new split panes to right and below
 vim.opt.splitright = true
@@ -23,14 +23,22 @@ vim.opt.termguicolors = true
 vim.g.floaterm_height = 0.99
 vim.g.floaterm_width = 0.99
 
-vim.fn.sign_define( "DiagnosticSignError", { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" })
-vim.fn.sign_define( "DiagnosticSignWarn", { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" })
-vim.fn.sign_define( "DiagnosticSignHint", { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" })
-vim.fn.sign_define( "DiagnosticSignInfo", { texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo" })
+-- vim.diagnostic.config({ signs = { text = "", linehl = "DiagnosticSignError", numhl = "DiagnosticSignError" }})
+-- vim.diagnostic.config({ signs = { text = "", linehl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" }})
+-- vim.diagnostic.config({ signs = { text = "", linehl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" }})
+-- vim.diagnostic.config({ signs = { text = "", linehl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" }})
 
 -- require('dap')
 -- vim.fn.sign_define('DapBreakpoint', {text='', texthl='', linehl='', numhl=''})
 -- vim.fn.sign_define('DapBreakpointCondition', {text='', texthl='', linehl='', numhl=''})
 -- vim.fn.sign_define('DapBreakpointRejected', {text='', texthl='', linehl='', numhl=''})
 -- vim.fn.sign_define('DapLogPoint', {text='', texthl='', linehl='', numhl=''})
+
+-- autoresize splits when window is resized
+vim.api.nvim_create_autocmd("VimResized", {
+    group = autogroup,
+    callback = function()
+        vim.cmd("tabdo wincmd =")
+    end
+})
 
